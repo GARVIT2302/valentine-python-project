@@ -13,7 +13,7 @@ jobs:
       - name: Build with Buildozer
         uses: digreatbrian/buildozer-action@v2
         with:
-          workdir: valentine_kivy
+          work-dir: valentine_kivy
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
