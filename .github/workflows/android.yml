@@ -6,13 +6,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: kivy/buildozer
+
     steps:
       - uses: actions/checkout@v4
-      - name: Build APK
-        run: buildozer -v android debug
+
+      - name: Build with Buildozer
+        uses: digreatbrian/buildozer-action@v2
+        with:
+          workdir: valentine_kivy
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: valintine-apk
-          path: bin/*.apk
+          name: valentine-apk
+          path: valentine_kivy/bin/*.apk
